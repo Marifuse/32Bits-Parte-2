@@ -1,16 +1,18 @@
 <template>
     <div>
         <header>
-            <h1 class="title-store">32BITS</h1>
-            <h2 class="subtitle-store">Los Mejores Juegos de PC y Consolas están aquí</h2>
+            <h1 class="title-store" v-text="title"></h1>
+            <h2 class="subtitle-store" v-text="subTitle"></h2>
         </header> 
     </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 export default {
-    computed: mapState['products']
+    computed: {
+        ...mapState(['title', 'subTitle'])
+    } 
 }
 </script>
 

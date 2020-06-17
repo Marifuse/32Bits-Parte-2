@@ -12,7 +12,9 @@ const store = new Vuex.Store({
       {code:'0004', name: 'Mario Tennis Aces', stock: '100', price: '35000', color: 'yellow', featured: false},
       {code:'0005', name: 'Bloodbrne', stock: '100', price: '10000', color: 'blue', featured: false},
       {code:'0006', name: 'Forza Horizon 4', stock:'100', price:'20000', color: 'red', featured: true},
-    ]
+    ],
+    title: '32Bits',
+    subTitle: 'Los Mejores Juegos de PC y Consolas están aquí'
   },
   getters: {
     inStock: state => {
