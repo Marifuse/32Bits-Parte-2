@@ -15,17 +15,24 @@
       </div>
     </form>
     <br>
-    <h5 class="title-stock">Cantidad de productos en stock - {{ inStock.length }}</h5>
+    <p>
+      Numero de juegos Disponible:
+      <span>{{this.countAvailable}}</span>
+    </p>
+    <p>
+      cantidad de juegos totales:
+      <span>{{this.sumTotal}}</span>
+    </p>
     </section>
     <section class="table-result">
         <table class="table">
             <tbody v-if="showResult">
                 <tr v-for="(product, index) in inStock" :key='index' :style="{background: product.color }">
-                <td v-text="product.code"></td>
-                <td v-text="product.name"></td>
-                <td v-text="product.stock"></td>
-                <td v-text="product.price"></td>
-                <td v-text="product.featured"></td>
+                <td>{{ product.code }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.price }}</td> 
+                <td>{{ product.featured }}</td>
                 </tr>
             </tbody>
             <tbody v-else>
@@ -50,7 +57,7 @@ export default {
       code: '',
       showResult: true,
       result: ''
-    };
+    }
   },
   methods: {
     search(){
@@ -60,9 +67,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["inStock", "byId"])
+    ...mapGetters(['countAvailable', 'sumTotal', "inStock", "byId"])
   }
-};
+}
 </script>
 
 <style>

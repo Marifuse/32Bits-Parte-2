@@ -17,14 +17,20 @@ const store = new Vuex.Store({
     subTitle: 'Los Mejores Juegos de PC y Consolas están aquí'
   },
   getters: {
-    inStock: state => {
+    inStock (state) {
       return state.products.filter((product) => {
         return product.stock > 0
       })
     },
     byId: (state, getters) => (code) => {
       return getters.inStock.find(product => product.code == code)
-    }
+    },
+    countAvailable(state){
+      return state.products.length
+    },
+   sumTotal(state){
+     return state.products.reduce((acc, prod) => acc += parseInt(prod.stock),0)
+    },
   },
   mutations: {
 
